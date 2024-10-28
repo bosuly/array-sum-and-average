@@ -1,0 +1,31 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package dialog.calculator;
+
+/**
+ *
+ * @author USER
+ */
+import javax.swing.JOptionPane;
+public class DialogCalculator {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {  
+        double sum=0;
+        double average=0;
+            int[] y=new int[10];
+            for (int u=0; u<y.length; u++){
+              String t = JOptionPane.showInputDialog("Enter number " + (u + 1) );
+                y[u]=Integer.parseInt(t);
+             sum+=y[u];
+             average=sum/y.length;
+       
+             
+            }
+            JOptionPane.showMessageDialog(null,"SUM OF ARRAY: " + sum+ "\n" + "AVERAGE OF ARRAY: "+average);
+    }}
+       
