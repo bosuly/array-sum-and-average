@@ -15,6 +15,18 @@ public class DialogCalculator {
      * @param args the command line arguments
      */
     public static void main(String[] args) {  
+        String [] choice={"sum and ave","max and min","reverse"," frequency"};
+         double sel = JOptionPane.showOptionDialog(
+            null,
+            "Please select an option:\n",
+            "Choice Dialog",
+            JOptionPane.DEFAULT_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            choice,
+            choice[0]
+         );
+  if(sel==0){
         double sum=0;
         double average=0;
             int[] y=new int[10];
@@ -27,5 +39,73 @@ public class DialogCalculator {
              
             }
             JOptionPane.showMessageDialog(null,"SUM OF ARRAY: " + sum+ "\n" + "AVERAGE OF ARRAY: "+average);
-    }}
-       
+    }
+  else if (sel==1){
+      double max=0;
+      double min=0;
+            int[] y=new int[15];
+            for (int u=0; u<y.length; u++){
+              String t = JOptionPane.showInputDialog("Enter number " + (u + 1) );
+                y[u]=Integer.parseInt(t);
+              max=y[u];
+                   min=y[0];
+             if (y[u] > max) {
+                max = y[u];
+            }else if (y[u]<min){        
+              min=y[u];  
+            
+  }
+            
+            }
+             JOptionPane.showMessageDialog(null,"Maximum element: " +  max + "\n"+ "Minimum element"+ min);
+  }else if (sel==2){
+      float b =0;
+     float[] y = new float[5];
+        int u;
+        for ( u =0; u < y.length; u++) {
+            String t = JOptionPane.showInputDialog("Enter number " + (u + 1) + ":");
+            y[u] = Float.parseFloat(t);
+         
+        }for (int i = 0; i < y.length / 2; i++) {
+            float p = y[i];
+            y[i] = y[y.length - 1 - i];
+            y[y.length - 1 - i] = p;
+        }  StringBuilder s = new StringBuilder("Array in reverse order: ");
+        for (float m : y) {
+            s.append(m).append(" ");
+        }
+        JOptionPane.showMessageDialog(null, s.toString());
+    }else if(sel==3){
+            int[] y=new int[10];
+            for (int u=0; u<y.length; u++){
+              for (int i = 0; i < y.length; i++) {
+            while (true) {
+                String input = JOptionPane.showInputDialog("Enter integer " + (i + 1) + " between 1 and 100:");
+                int num = Integer.parseInt(input);
+                
+                // Check if the number is within the required range
+                if (num >= 1 && num <= 100) {
+                    y[i] = num;
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please enter a number between 1 and 100.");
+                }
+            }
+        }
+
+      
+        String checkInput = JOptionPane.showInputDialog("Enter a number to check its frequency in the array:");
+        int checkNumber = Integer.parseInt(checkInput);
+        
+      
+        int count = 0;
+        for (int num : y) {
+            if (num == checkNumber) {
+                count++;
+            }
+        }
+
+      
+        JOptionPane.showMessageDialog(null, "The number " + checkNumber + " appears " + count + " times in the array.");
+    }
+}}}
